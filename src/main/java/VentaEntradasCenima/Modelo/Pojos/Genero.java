@@ -2,28 +2,37 @@ package VentaEntradasCenima.Modelo.Pojos;
 
 public class Genero {
 
-	private String nombre_genero;
+	private String nombreGenero;
 
-	public Genero(String nombre_genero) {
 	
-		this.nombre_genero = nombre_genero;
+	public Genero() {
+		
+	
 	}
 
-	public String getNombre_genero() {
-		return nombre_genero;
+
+	public Genero(String nombreGenero) {
+	
+		this.nombreGenero = nombreGenero;
 	}
 
-	public void setNombre_genero(String nombre_genero) {
-		this.nombre_genero = nombre_genero;
+
+	public String getNombreGenero() {
+		return nombreGenero;
 	}
+
+
+	public void setNombreGenero(String nombreGenero) {
+		this.nombreGenero = nombreGenero;
+	}
+
 
 	@Override
 	public String toString() {
-		return "genero [nombre_genero=" + nombre_genero + "]";
+		return "Genero [nombreGenero=" + nombreGenero + "]";
 	}
 	
 	
-	
-	
-	
 }
+	
+

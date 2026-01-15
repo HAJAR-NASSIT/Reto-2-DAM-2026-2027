@@ -5,87 +5,110 @@ import java.time.LocalTime;
 
 public class Sesion {
 
-	private int id_sesion;
-	private int id_pelicula;
-	private int id_sala;
+	
+	private int idSesion;
+	private int idPelicula;
+	private int idSala;
 	private LocalDate fecha;
-	private LocalTime hora_inicio;
-	private LocalTime hora_fin;
+	private LocalTime horaInicio;
+	private LocalTime horaFin;
 	private double precio;
 	
 	
-	public Sesion(int id_sesion, int id_pelicula, int id_sala, LocalDate fecha, LocalTime hora_inicio,
-			LocalTime hora_fin, double precio) {
+	public Sesion() {
 		
-		this.id_sesion = id_sesion;
-		this.id_pelicula = id_pelicula;
-		this.id_sala = id_sala;
+		
+	}
+
+	
+	public Sesion(int idSesion, int idPelicula, int idSala, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin,
+			double precio) {
+		
+		this.idSesion = idSesion;
+		this.idPelicula = idPelicula;
+		this.idSala = idSala;
 		this.fecha = fecha;
-		this.hora_inicio = hora_inicio;
-		this.hora_fin = hora_fin;
+		this.horaInicio = horaInicio;
+		this.horaFin = horaFin;
 		this.precio = precio;
 	}
+	
+	
 
-	public int getId_sesion() {
-		return id_sesion;
+	public int getIdSesion() {
+		return idSesion;
 	}
 
-	public void setId_sesion(int id_sesion) {
-		this.id_sesion = id_sesion;
+
+	public void setIdSesion(int idSesion) {
+		this.idSesion = idSesion;
 	}
 
-	public int getId_pelicula() {
-		return id_pelicula;
+
+	public int getIdPelicula() {
+		return idPelicula;
 	}
 
-	public void setId_pelicula(int id_pelicula) {
-		this.id_pelicula = id_pelicula;
+
+	public void setIdPelicula(int idPelicula) {
+		this.idPelicula = idPelicula;
 	}
 
-	public int getId_sala() {
-		return id_sala;
+
+	public int getIdSala() {
+		return idSala;
 	}
 
-	public void setId_sala(int id_sala) {
-		this.id_sala = id_sala;
+
+	public void setIdSala(int idSala) {
+		this.idSala = idSala;
 	}
+
 
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
+
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 
-	public LocalTime getHora_inicio() {
-		return hora_inicio;
+
+	public LocalTime getHoraInicio() {
+		return horaInicio;
 	}
 
-	public void setHora_inicio(LocalTime hora_inicio) {
-		this.hora_inicio = hora_inicio;
+
+	public void setHoraInicio(LocalTime horaInicio) {
+		this.horaInicio = horaInicio;
 	}
 
-	public LocalTime getHora_fin() {
-		return hora_fin;
+
+	public LocalTime getHoraFin() {
+		return horaFin;
 	}
 
-	public void setHora_fin(LocalTime hora_fin) {
-		this.hora_fin = hora_fin;
+
+	public void setHoraFin(LocalTime horaFin) {
+		this.horaFin = horaFin;
 	}
+
 
 	public double getPrecio() {
 		return precio;
 	}
 
+
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Sesion [id_sesion=" + id_sesion + ", id_pelicula=" + id_pelicula + ", id_sala=" + id_sala + ", fecha="
-				+ fecha + ", hora_inicio=" + hora_inicio + ", hora_fin=" + hora_fin + ", precio=" + precio + "]";
+		return "Sesion [idSesion=" + idSesion + ", idPelicula=" + idPelicula + ", idSala=" + idSala + ", fecha=" + fecha
+				+ ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", precio=" + precio + "]";
 	}
 	
 	

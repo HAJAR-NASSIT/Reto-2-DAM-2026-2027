@@ -2,35 +2,36 @@ package VentaEntradasCenima.Modelo.Pojos;
 
 public class PeliculasGenero {
 
-	private String nombre_genero;
-	private int id_pelicula;
+	private String nombreGenero;
+	private int idPelicula;
 	
-	public PeliculasGenero(String nombre_genero, int id_pelicula) {
+	public PeliculasGenero() {
 		
-		this.nombre_genero = nombre_genero;
-		this.id_pelicula = id_pelicula;
+		
 	}
+	
+	
+	
 
-	public String getNombre_genero() {
-		return nombre_genero;
+
+	public String getNombreGenero() {
+		return nombreGenero;
 	}
-
-	public void setNombre_genero(String nombre_genero) {
-		this.nombre_genero = nombre_genero;
+	public void setNombreGenero(String nombreGenero) {
+		this.nombreGenero = nombreGenero;
 	}
-
-	public int getId_pelicula() {
-		return id_pelicula;
+	public int getIdPelicula() {
+		return idPelicula;
 	}
-
-	public void setId_pelicula(int id_pelicula) {
-		this.id_pelicula = id_pelicula;
+	public void setIdPelicula(int idPelicula) {
+		this.idPelicula = idPelicula;
 	}
 
 	@Override
 	public String toString() {
-		return "PeliculasGenero [nombre_genero=" + nombre_genero + ", id_pelicula=" + id_pelicula + "]";
+		return "PeliculasGenero [nombreGenero=" + nombreGenero + ", idPelicula=" + idPelicula + "]";
 	}
+	
 	
 	
 }
