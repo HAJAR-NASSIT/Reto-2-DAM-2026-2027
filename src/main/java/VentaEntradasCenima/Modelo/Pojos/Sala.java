@@ -4,48 +4,59 @@ package VentaEntradasCenima.Modelo.Pojos;
 public class Sala {
 
 	
-	private int id_sala;
+	private int idSala;
 	private String nombre;
-	private String Capacidad;
+	private int capacidad;
 	
 
-	public Sala(int id_sala, String nombre, String capacidad) {
-		this.id_sala = id_sala;
+	public Sala() {
+		
+	}
+
+
+	public Sala(int idSala, String nombre, int capacidad) {
+		
+		this.idSala = idSala;
 		this.nombre = nombre;
-		Capacidad = capacidad;
+		this.capacidad = capacidad;
 	}
 
-	public int getId_sala() {
-		return id_sala;
+
+	public int getIdSala() {
+		return idSala;
 	}
 
-	public void setId_sala(int id_sala) {
-		this.id_sala = id_sala;
+
+	public void setIdSala(int idSala) {
+		this.idSala = idSala;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public String getCapacidad() {
-		return Capacidad;
+
+	public int getCapacidad() {
+		return capacidad;
 	}
 
-	public void setCapacidad(String capacidad) {
-		Capacidad = capacidad;
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
 	}
+
 
 	@Override
 	public String toString() {
-		return "Sala [id_sala=" + id_sala + ", nombre=" + nombre + ", Capacidad=" + Capacidad + "]";
+		return "Sala [idSala=" + idSala + ", nombre=" + nombre + ", capacidad=" + capacidad + "]";
 	}
-	
-	
-	
+
 	
 	
 }
