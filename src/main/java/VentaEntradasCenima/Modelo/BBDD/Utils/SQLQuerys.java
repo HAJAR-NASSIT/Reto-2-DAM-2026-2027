@@ -29,6 +29,10 @@ public class SQLQuerys {
 	    // Nombre de sala (para poder mostrar “Sala principal” en pantalla)
 	    public static final String SELECT_NOMBRE_SALA_POR_ID =
 	    		 "SELECT id_sala, nombre, capacidad FROM sala WHERE id_sala = ?";
+
+		public static final String SELECT_FECHAS_POR_ID_PELICULA = null;
+
+		public static final String SELECT_SESIONES_POR_ID_PELICULA_Y_FECHA = null;
 	
 	
 	
