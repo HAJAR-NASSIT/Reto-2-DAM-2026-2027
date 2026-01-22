@@ -1,28 +1,32 @@
 package VentaEntradasCenima.Modelo.Pojos;
 
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Compra {
 
 	private int idCompra;
-	private String dni;
-	private int fechaCompra;
-	private int horaCompra;
-	private int prcioTotal;
+	private Cliente cliente;
+	private LocalDate fechaCompra;
+	private LocalTime horaCompra;
+	private double precioTotal;
 	private double descuentoTotal;
-	private int tipoCompra;
+	private String tipoCompra;
 	private int numeroEntradas;
 	
 	public Compra() {
 		
 	}
+
+	public Compra(int idCompra, Cliente cliente, LocalDate fechaCompra, LocalTime horaCompra, double precioTotal,
+			double descuentoTotal, String tipoCompra, int numeroEntradas) {
 	
-	public Compra(int idCompra, String dniCliente, int fechaCompra, int horaCompra, int prcioTotal,
-			double descuentoTotal, int tipoCompra, int numeroEntradas) {
-		
 		this.idCompra = idCompra;
-		this.dni = dniCliente;
+		this.cliente = cliente;
 		this.fechaCompra = fechaCompra;
 		this.horaCompra = horaCompra;
-		this.prcioTotal = prcioTotal;
+		this.precioTotal = precioTotal;
 		this.descuentoTotal = descuentoTotal;
 		this.tipoCompra = tipoCompra;
 		this.numeroEntradas = numeroEntradas;
@@ -36,36 +40,36 @@ public class Compra {
 		this.idCompra = idCompra;
 	}
 
-	public String getDniCliente() {
-		return dni;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setDniCliente(String dniCliente) {
-		this.dni = dniCliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public int getFechaCompra() {
+	public LocalDate getFechaCompra() {
 		return fechaCompra;
 	}
 
-	public void setFechaCompra(int fechaCompra) {
+	public void setFechaCompra(LocalDate fechaCompra) {
 		this.fechaCompra = fechaCompra;
 	}
 
-	public int getHoraCompra() {
+	public LocalTime getHoraCompra() {
 		return horaCompra;
 	}
 
-	public void setHoraCompra(int horaCompra) {
+	public void setHoraCompra(LocalTime horaCompra) {
 		this.horaCompra = horaCompra;
 	}
 
-	public int getPrcioTotal() {
-		return prcioTotal;
+	public double getPrecioTotal() {
+		return precioTotal;
 	}
 
-	public void setPrcioTotal(int prcioTotal) {
-		this.prcioTotal = prcioTotal;
+	public void setPrecioTotal(double precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 
 	public double getDescuentoTotal() {
@@ -76,11 +80,11 @@ public class Compra {
 		this.descuentoTotal = descuentoTotal;
 	}
 
-	public int getTipoCompra() {
+	public String getTipoCompra() {
 		return tipoCompra;
 	}
 
-	public void setTipoCompra(int tipoCompra) {
+	public void setTipoCompra(String tipoCompra) {
 		this.tipoCompra = tipoCompra;
 	}
 
@@ -94,16 +98,11 @@ public class Compra {
 
 	@Override
 	public String toString() {
-		return "Compra [idCompra=" + idCompra + ", dniCliente=" + dni + ", fechaCompra=" + fechaCompra
-				+ ", horaCompra=" + horaCompra + ", prcioTotal=" + prcioTotal + ", descuentoTotal=" + descuentoTotal
+		return "Compra [idCompra=" + idCompra + ", cliente=" + cliente + ", fechaCompra=" + fechaCompra
+				+ ", horaCompra=" + horaCompra + ", precioTotal=" + precioTotal + ", descuentoTotal=" + descuentoTotal
 				+ ", tipoCompra=" + tipoCompra + ", numeroEntradas=" + numeroEntradas + "]";
 	}
 	
-	
-	
-	
-	
-	
-	
+
 	
 }

@@ -1,10 +1,12 @@
 package VentaEntradasCenima.Modelo.Pojos;
 
+
+
 public class Entrada {
 
 	private int idEntrada;
-	private int idSesion;
-	private int idCompra;
+	private Sesion sesion;
+	private Compra compra;
 	private double precio;
 	private double descuento;
 	
@@ -12,11 +14,11 @@ public class Entrada {
 		
 	}
 
-	public Entrada(int idEntrada, int idSesion, int idCompra, double precio, double descuento) {
-	
+	public Entrada(int idEntrada, Sesion sesion, Compra compra, double precio, double descuento) {
+		
 		this.idEntrada = idEntrada;
-		this.idSesion = idSesion;
-		this.idCompra = idCompra;
+		this.sesion = sesion;
+		this.compra = compra;
 		this.precio = precio;
 		this.descuento = descuento;
 	}
@@ -29,20 +31,20 @@ public class Entrada {
 		this.idEntrada = idEntrada;
 	}
 
-	public int getIdSesion() {
-		return idSesion;
+	public Sesion getSesion() {
+		return sesion;
 	}
 
-	public void setIdSesion(int idSesion) {
-		this.idSesion = idSesion;
+	public void setSesion(Sesion sesion) {
+		this.sesion = sesion;
 	}
 
-	public int getIdCompra() {
-		return idCompra;
+	public Compra getCompra() {
+		return compra;
 	}
 
-	public void setIdCompra(int idCompra) {
-		this.idCompra = idCompra;
+	public void setCompra(Compra compra) {
+		this.compra = compra;
 	}
 
 	public double getPrecio() {
@@ -63,15 +65,13 @@ public class Entrada {
 
 	@Override
 	public String toString() {
-		return "Entrada [idEntrada=" + idEntrada + ", idSesion=" + idSesion + ", idCompra=" + idCompra + ", precio="
-				+ precio + ", descuento=" + descuento + "]";
+		return "Entrada [idEntrada=" + idEntrada + ", sesion=" + sesion + ", compra=" + compra + ", precio=" + precio
+				+ ", descuento=" + descuento + "]";
 	}
 
 	
 	
-	
-	
-	
+
 	
 }
 

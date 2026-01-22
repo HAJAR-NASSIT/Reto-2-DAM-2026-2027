@@ -5,13 +5,9 @@ import java.time.LocalTime;
 
 public class Sesion {
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> 94b37301267835b884a330ad4b0ab3d004c2ed5e
 	private int idSesion;
-	private int idPelicula;
-	private int idSala;
+	private Pelicula pelicula;
+	private Sala sala;
 	private LocalDate fecha;
 	private LocalTime horaInicio;
 	private LocalTime horaFin;
@@ -19,28 +15,21 @@ public class Sesion {
 	
 	
 	public Sesion() {
-<<<<<<< HEAD
-		
-		
+	
 	}
 
-	
-	public Sesion(int idSesion, int idPelicula, int idSala, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin,
+
+	public Sesion(int idSesion, Pelicula pelicula, Sala sala, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin,
 			double precio) {
-		
 		this.idSesion = idSesion;
-		this.idPelicula = idPelicula;
-		this.idSala = idSala;
+		this.pelicula = pelicula;
+		this.sala = sala;
 		this.fecha = fecha;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 		this.precio = precio;
-=======
-	
->>>>>>> 94b37301267835b884a330ad4b0ab3d004c2ed5e
 	}
-	
-	
+
 
 	public int getIdSesion() {
 		return idSesion;
@@ -52,23 +41,23 @@ public class Sesion {
 	}
 
 
-	public int getIdPelicula() {
-		return idPelicula;
+	public Pelicula getPelicula() {
+		return pelicula;
 	}
 
 
-	public void setIdPelicula(int idPelicula) {
-		this.idPelicula = idPelicula;
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula = pelicula;
 	}
 
 
-	public int getIdSala() {
-		return idSala;
+	public Sala getSala() {
+		return sala;
 	}
 
 
-	public void setIdSala(int idSala) {
-		this.idSala = idSala;
+	public void setSala(Sala sala) {
+		this.sala = sala;
 	}
 
 
@@ -114,10 +103,12 @@ public class Sesion {
 
 	@Override
 	public String toString() {
-		return "Sesion [idSesion=" + idSesion + ", idPelicula=" + idPelicula + ", idSala=" + idSala + ", fecha=" + fecha
+		return "Sesion [idSesion=" + idSesion + ", pelicula=" + pelicula + ", sala=" + sala + ", fecha=" + fecha
 				+ ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", precio=" + precio + "]";
 	}
+
 	
 	
 	
-}
+	
+	}
