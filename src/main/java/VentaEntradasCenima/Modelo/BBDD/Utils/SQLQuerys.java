@@ -33,6 +33,10 @@ public class SQLQuerys {
 		public static final String SELECT_FECHAS_POR_ID_PELICULA = null;
 
 		public static final String SELECT_SESIONES_POR_ID_PELICULA_Y_FECHA = null;
+
+		public static final String INSERT_NUEVA_COMPRA = null;
+
+		public static final String SELECT_ULTIMO_ID_COMPRA = null;
 	
 	
 	
