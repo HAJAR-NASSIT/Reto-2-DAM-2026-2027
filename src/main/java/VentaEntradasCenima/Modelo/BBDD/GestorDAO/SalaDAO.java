@@ -9,33 +9,50 @@ import VentaEntradasCenima.Modelo.Pojos.Sala;
 public class SalaDAO {
 
 	
-	public Sala obtenerNombreSala(int idSala) {
-
-        Connection connection = null;
+	
+/**
+ * 
+ * @param idSala
+ * @return
+ */
+	public Sala  obtenerSala( int idSala ){
+		String sql= SQLQuerys.SELECT_SALA_POR_ID ;
+		
+        Connection connection = null ;
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        ResultSet  resultSet = null;
 
     	Sala sala = new Sala() ;
         try {
         	connection = DBUtils.getConnection();
-        	preparedStatement = connection.prepareStatement(SQLQuerys.SELECT_NOMBRE_SALA_POR_ID);
-        	preparedStatement.setInt(1, idSala);
-        	resultSet = preparedStatement.executeQuery();
+        	preparedStatement = connection.prepareStatement(sql) ;
+        	preparedStatement.setInt( 1 , idSala );
+        	resultSet = preparedStatement.executeQuery() ;
         	
-            if (resultSet.next()) {
-            	sala.setIdSala(resultSet.getInt("id_sala"));
-                sala.setNombre(resultSet.getString("nombre"));
-                sala.setCapacidad(resultSet.getInt("capacidad"));
+            if( resultSet.next()) {
+            	sala.setIdSala(resultSet.getInt("id_sala")) ;
+                sala.setNombre(resultSet.getString("nombre")) ;
+                sala.setCapacidad(resultSet.getInt("capacidad")) ;
             }
 
-        } catch (SQLException e) {
-            System.out.println("Error obtenerNombreSala: " + e.getMessage());
-        } finally {
+        } catch ( SQLException  e) {
+            System.out.println("Error al  obtener Nombre Sala: " + e.getMessage());
+        } finally{
            
-            DBUtils.cerrarConexion(connection);
+        	try{
+                if (resultSet != null ){
+                	resultSet.close();
+                }
+                if (preparedStatement != null ) {
+                	preparedStatement.close() ;
+                }
+            }catch (SQLException  e) {
+            	
+            }
+            DBUtils.cerrarConexion( connection);
         }
 
-        return sala ;
+      return sala ;
     }
-	
+		
 }
