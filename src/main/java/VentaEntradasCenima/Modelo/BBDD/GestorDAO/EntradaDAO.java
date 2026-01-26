@@ -1,43 +1,58 @@
 package VentaEntradasCenima.Modelo.BBDD.GestorDAO;
 
-public class EntradaDAO {
+
+
+import java.sql.*;
+
+import VentaEntradasCenima.Modelo.BBDD.Utils.DBUtils;
+import VentaEntradasCenima.Modelo.BBDD.Utils.SQLQuerys;
 
 /**
- * 
- * @param idSesion
- * @param idCompra
- * @param precio
- * @param descuento
+ * Clase EntradaDAO. Gestiona las operaciones de acceso a la base de datos
+ * relacionadas con las entradas de cine.
  */
-	public void   insertarEntrada( int idSesion, int idCompra  , double  precio, double descuento ) {
 
-        String sql = SQLQuerys.INSERT_NUEVA_ENTRADA;
-        
-        Connection connection =null ;
-        PreparedStatement preparedStatement = null ;
+public class EntradaDAO {
 
-        try{
-        	connection = DBUtils.getConnection() ;
-        	preparedStatement = connection.prepareStatement(sql );
+	/**
+	 * Inserta una nueva entrada en la base de datos.
+	 *
+	 * @param idSesion  identificador de la sesión asociada a la entrada
+	 * @param idCompra  identificador de la compra a la que pertenece la entrada
+	 * @param precio    precio de la entrada
+	 * @param descuento descuento aplicado a la entrada
+	 */
+	
+	
+	public void insertarEntrada(int idSesion, int idCompra, double precio, double descuento) {
 
-        	preparedStatement.setInt(1 , idSesion);
-        	preparedStatement.setInt(2 , idCompra)  ;
-        	preparedStatement.setDouble(3, precio) ;
-        	preparedStatement.setDouble(4 , descuento);
+		String sql = SQLQuerys.INSERT_NUEVA_ENTRADA;
 
-        	preparedStatement.executeUpdate();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
-        } catch (SQLException e) {
-            System.out.println("Error al  insertar Entrada : " + e.getMessage());
-        } finally{
-        	try{
-                
-                if (preparedStatement != null ) {
-                	preparedStatement.close()  ;
-                }
-            }catch (SQLException e ) {	
-            }
-            DBUtils.cerrarConexion( connection) ;
-        }
-    }
+		try {
+			connection = DBUtils.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setInt(1, idSesion);
+			preparedStatement.setInt(2, idCompra);
+			preparedStatement.setDouble(3, precio);
+			preparedStatement.setDouble(4, descuento);
+
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("Error al  insertar Entrada : " + e.getMessage());
+		} finally {
+			try {
+
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+			} catch (SQLException e) {
+			}
+			DBUtils.cerrarConexion(connection);
+		}
+	}
 }
