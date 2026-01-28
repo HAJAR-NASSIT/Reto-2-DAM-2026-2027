@@ -5,10 +5,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import VentaEntradasCinema.Modelo.Pojos.Cliente;
-import VentaEntradasCinema.Modelo.Pojos.Pelicula;
-import VentaEntradasCinema.Modelo.Pojos.Sala;
-import VentaEntradasCinema.Modelo.Pojos.Sesion;
+import VentaEntradasCenima.Modelo.Pojos.Cliente;
+import VentaEntradasCenima.Modelo.Pojos.Pelicula;
+import VentaEntradasCenima.Modelo.Pojos.Sala;
+import VentaEntradasCenima.Modelo.Pojos.Sesion;
 
 public class Menu {
 	
