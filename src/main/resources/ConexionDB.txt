@@ -1,3 +1,0 @@
-url=jdbc:mysql://10.5.6.60:33060/cine_elorrieta
-user=dam
-password=Elorrieta9753$
