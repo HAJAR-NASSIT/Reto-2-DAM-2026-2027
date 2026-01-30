@@ -1,0 +1,84 @@
+.resumen-reserva {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ticket {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  width: 90%;/*responsive*/
+  max-width: 400px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.ticket-header {
+  text-align: center;
+  border-bottom: 1px dashed rgba(233, 69, 96, 0.3);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.ticket-header h3 {
+  margin-bottom: 5px;
+  color: #e94560;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.ticket-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.ticket-body li {
+  padding: 8px 0;
+  border-bottom: 1px dotted rgba(233, 69, 96, 0.3);
+  font-size: 14px;
+  color: #fff;
+}
+
+.ticket-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ticket-footer button {
+  background: linear-gradient(135deg, #e94560, #ff6b6b);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.ticket-footer button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(233, 69, 96, 0.6);
+  background: linear-gradient(135deg, #ff6b6b, #e94560);
+}
+/* Media query para moviles */
+@media (max-width: 480px) {
+  .ticket {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .ticket-header h3 {
+    font-size: 18px;
+  }
+  
+  .ticket-body li {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+}

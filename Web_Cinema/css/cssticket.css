@@ -1,0 +1,125 @@
+/* Ticket principal */
+.ticket {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  width: 450px;
+  max-width: 90%;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  margin: 50px auto;
+  animation: fadeInUp 0.6s ease;
+  font-family: 'Poppins', sans-serif;
+   margin-top: 120px;
+}
+
+/* Cabecera del ticket */
+.ticket h2 {
+  text-align: center;
+  color: #e94560;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.ticket h2::after {
+  content: "🎬";
+  position: absolute;
+  right: -30px;
+  font-size: 28px;
+  opacity: 0.7;
+}
+
+/* Información general */
+.ticket p {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Lista de detalles */
+.ticket ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 25px 0;
+}
+
+.ticket ul li {
+  padding: 10px 0;
+  border-bottom: 1px dotted rgba(233, 69, 96, 0.3);
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+/* Último elemento sin borde */
+.ticket ul li:last-child {
+  border-bottom: none;
+  font-weight: 700;
+  color: #4ade80; /* color verde para total */
+}
+
+/* Botones */
+.ticket-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.ticket-buttons button {
+  background: linear-gradient(135deg, #e94560, #ff6b6b);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+}
+
+.ticket-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(233, 69, 96, 0.6);
+  background: linear-gradient(135deg, #ff6b6b, #e94560);
+}
+
+/* Animación fade-in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .ticket {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .ticket h2 {
+    font-size: 24px;
+  }
+
+  .ticket ul li {
+    font-size: 14px;
+  }
+
+  .ticket-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
