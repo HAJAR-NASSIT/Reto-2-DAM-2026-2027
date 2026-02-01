@@ -1,0 +1,127 @@
+
+/* ================= MOVIES SECTION ================= */
+.movies-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* ================= MOVIE CARD ================= */
+.movie-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.4s;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(212,175,55,0.15);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+.movie-content {
+    padding: 20px;
+}
+
+.movie-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.movie-genre {
+    font-size: 13px;
+    color: #e94560;
+}
+
+.movie-details {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color:white ;
+}
+
+/* ================= BUTTON ================= */
+.btn-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background:  #e2bc5c;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+     color: black; 
+}
+
+.btn-select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(212,175,55,0.35);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .movies-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .movie-poster {
+        height: 320px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+    }
+}
+
+/* movil */
+@media (max-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .movie-poster {
+        height: 280px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+        text-align: center;
+    }
+}
+
+/* Movil pequeno */
+@media (max-width: 576px) {
+    .movies-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .movies-section {
+        padding: 60px 20px;
+    }
+    
+    .movie-poster {
+        height: 300px;
+    }
+}
