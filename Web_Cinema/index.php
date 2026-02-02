@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $conn->real_escape_string($_POST['usuario']);
-    $pass = $_POST['password']; 
+    $pass = $_POST['password'];
 
 
     $stmt = $conn->prepare("SELECT password FROM cliente WHERE DNI = ?");

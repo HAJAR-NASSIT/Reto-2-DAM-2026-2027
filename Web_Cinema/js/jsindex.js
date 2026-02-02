@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(valido!==true){
             evento.preventDefault();
-        } 
+        }
     })
 })
 

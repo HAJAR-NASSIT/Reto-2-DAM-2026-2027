@@ -1,133 +1,303 @@
-*{
-    padding: 0;
-     margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 /* CONTENEDOR PRINCIPAL */
 .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../imagen/Modern\ luxury\ cinema\ lobby\ interior\,\ elegant\ and\ minimal\ design\,\ soft\ warm\ lighting\,\ bright\ and\ clean\ atmosphere\,\ large\ arched\ glass\ doors\,\ marble\ floor\ with\ subtle\ reflections\,\ premium\ movie\ theater\ aesthetic\,\ .jpg');
-    padding: 20px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../imagen/ba1.png");
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 /* CAJA DE REGISTRO */
 .register-box {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    width: 550px;
-    
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 550px;
 }
 /* LOGO */
 .logo {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .logo h1 {
-    color: rgb(44, 44, 44);
-    font-size: 3rem;
-    margin-bottom: 3px;
-    font-style: oblique;
+  color: rgb(44, 44, 44);
+  font-size: 3rem;
+  margin-bottom: 3px;
+  font-style: oblique;
 }
 
 .logo p {
-    color: #5e5959;
-    font-size: 18px;
-    font-style: italic;
+  color: #5e5959;
+  font-size: 18px;
+  font-style: italic;
 }
 /* FORMULARIO */
 .form-group {
-    margin-bottom: 20px;
-    position: relative;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #5e5959;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 8px;
+  color: #5e5959;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .form-control {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s;
-    background-color: #f8f9fa;
+  width: 95%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background-color: #f8f9fa;
 }
 
 .form-control:focus {
-    outline: none;
-    border-color: #e63946;
-    background-color: white;
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+  outline: none;
+  border-color: #e63946;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
 }
 /* MENSAJES DE ERROR */
 .message {
-    text-align: center;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-weight: 500;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .message.error {
-    background-color: #ffe6e6;
-    color: #e63946;
+  background-color: #ffe6e6;
+  color: #e63946;
 }
 /* BOToN */
 .btn-register {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, #e63946 0%, #d62839 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #e63946 0%, #d62839 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
 }
 
 .btn-register:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
 }
 /* ENLACE A LOGIN */
 .login-link {
-    text-align: center;
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    color: #666;
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: #666;
 }
 
 .login-link a {
-    color: #e63946;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 5px;
+  color: #e63946;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 .login-link a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Tablets  */
+@media (max-width: 992px) {
+  .register-box {
+    width: 500px;
+    padding: 35px;
+  }
+
+  .logo h1 {
+    font-size: 2.6rem;
+  }
+
+  .logo p {
+    font-size: 17px;
+  }
+
+  .form-control {
+    padding: 11px;
+    font-size: 0.95rem;
+  }
+
+  .btn-register {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+}
+
+/* Small Tablets*/
+@media (max-width: 768px) {
+  .register-container {
+    padding: 15px;
+  }
+
+  .register-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 32px 28px;
+    border-radius: 18px;
+  }
+
+  .logo {
+    margin-bottom: 25px;
+  }
+
+  .logo h1 {
+    font-size: 2.4rem;
+  }
+
+  .logo p {
+    font-size: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 7px;
+  }
+
+  .form-control {
+    padding: 11px;
+    font-size: 0.95rem;
+  }
+
+  .btn-register {
+    padding: 13px;
+    font-size: 1rem;
+  }
+
+  .login-link {
+    margin-top: 22px;
+    padding-top: 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile Large  */
+@media (max-width: 576px) {
+  .register-container {
+    padding: 12px;
+  }
+
+  .register-box {
+    max-width: 100%;
+    padding: 28px 22px;
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+  }
+
+  .logo {
+    margin-bottom: 22px;
+  }
+
+  .logo h1 {
+    font-size: 2.2rem;
+  }
+
+  .logo p {
+    font-size: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .form-control {
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 7px;
+  }
+
+  .btn-register {
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 9px;
+  }
+
+  .message {
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .login-link {
+    margin-top: 20px;
+    padding-top: 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Small  */
 @media (max-width: 480px) {
-    .register-box {
-        padding: 30px 20px;
-    }
+  .register-container {
+    padding: 10px;
+  }
+
+  .register-box {
+    padding: 25px 18px;
+  }
+
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .logo p {
+    font-size: 14px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+  }
+
+  .form-control {
+    padding: 9px;
+    font-size: 0.85rem;
+  }
+
+  .btn-register {
+    padding: 11px;
+    font-size: 0.9rem;
+  }
 }
