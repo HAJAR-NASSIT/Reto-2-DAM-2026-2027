@@ -4,8 +4,8 @@ require "config.php";
 
 $id_pelicula = $_POST['id_pelicula'] ?? null;
 $user = $_SESSION['usuario'] ?? null;
-
-$stmt = $conn->prepare("SELECT nombre FROM cliente WHERE DNI=?");
+$sql_nombre="SELECT nombre FROM cliente WHERE DNI=?";
+$stmt = $conn->prepare($sql_nombre);
 $stmt->bind_param("s", $user);
 $stmt->execute();
 $usuario_info = $stmt->get_result()->fetch_assoc();
@@ -15,9 +15,12 @@ if (!$id_pelicula || !$user) {
     echo "Seleccione primero una película.";
     exit;
 }
+$sql_film="SELECT titulo, descripcion, imagen FROM pelicula WHERE id_pelicula = ?";
+$stmt = $conn->prepare($sql_film);
+$stmt->bind_param("i", $id_pelicula);
+$stmt->execute();
+$pelicula = $stmt->get_result()->fetch_assoc();
 
-$pelicula_res = $conn->query("SELECT titulo, descripcion, imagen FROM pelicula WHERE id_pelicula=$id_pelicula");
-$pelicula = $pelicula_res->fetch_assoc();
 
 $selected_fecha = $_POST['fecha'] ?? '';
 $selected_hora = $_POST['hora'] ?? '';
@@ -25,13 +28,20 @@ $sala_val = '';
 $precio_val = '';
 
 $id_sesion = null;
+
+$sql_sesion = "
+    SELECT s.id_sesion, sa.nombre AS sala, s.precio
+    FROM sesion s
+    JOIN sala sa ON s.id_sala = sa.id_sala
+    WHERE s.id_pelicula = ?
+      AND s.fecha = ?
+      AND s.hora_inicio = ?
+      AND (SELECT COUNT(*) FROM entrada e WHERE e.id_sesion = s.id_sesion) < sa.capacidad
+";
+
+
 if ($selected_fecha && $selected_hora) {
-    $stmt = $conn->prepare("
-        SELECT s.id_sesion, sa.nombre AS sala, s.precio
-        FROM sesion s
-        JOIN sala sa ON s.id_sala = sa.id_sala
-        WHERE s.id_pelicula=? AND s.fecha=? AND s.hora_inicio=?
-    ");
+    $stmt = $conn->prepare($sql_sesion);
     $stmt->bind_param("iss", $id_pelicula, $selected_fecha, $selected_hora);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -41,8 +51,15 @@ if ($selected_fecha && $selected_hora) {
         $id_sesion = $row['id_sesion'];
     }
 }
-
-$stmt = $conn->prepare("SELECT DISTINCT fecha FROM sesion WHERE id_pelicula=? ORDER BY fecha");
+$sql_fechas="
+    SELECT DISTINCT s.fecha
+    FROM sesion s
+    JOIN sala sa ON s.id_sala = sa.id_sala
+    WHERE s.id_pelicula = ?
+      AND (SELECT COUNT(*) FROM entrada e WHERE e.id_sesion = s.id_sesion) < sa.capacidad
+    ORDER BY s.fecha ASC
+";
+$stmt = $conn->prepare($sql_fechas);
 $stmt->bind_param("i", $id_pelicula);
 $stmt->execute();
 $fechas_result = $stmt->get_result();
@@ -50,9 +67,18 @@ $fechas = [];
 while ($f = $fechas_result->fetch_assoc())
     $fechas[] = $f['fecha'];
 
+$sql_horas="
+        SELECT s.hora_inicio
+        FROM sesion s
+        JOIN sala sa ON s.id_sala = sa.id_sala
+        WHERE s.id_pelicula = ?
+          AND s.fecha = ?
+          AND (SELECT COUNT(*) FROM entrada e WHERE e.id_sesion = s.id_sesion) < sa.capacidad
+        ORDER BY s.hora_inicio ASC
+    ";
 $horas = [];
 if ($selected_fecha) {
-    $stmt = $conn->prepare("SELECT hora_inicio FROM sesion WHERE id_pelicula=? AND fecha=? ORDER BY hora_inicio");
+    $stmt = $conn->prepare($sql_horas);
     $stmt->bind_param("is", $id_pelicula, $selected_fecha);
     $stmt->execute();
     $horas_result = $stmt->get_result();
@@ -146,7 +172,7 @@ if ($selected_fecha) {
                     <label>Precio (€):</label><br>
                     <input type="text" value="<?= $precio_val ?>" readonly><br><br>
 
-                    <?php if ($selected_fecha && $selected_hora): ?>
+                    <?php if ($selected_fecha && $selected_hora && $id_sesion): ?>
                         <input type="hidden" name="id_sesion" value="<?= $id_sesion ?>">
                         <input type="hidden" name="fecha_sesion" value="<?= $selected_fecha ?>">
                         <input type="hidden" name="hora_sesion" value="<?= $selected_hora ?>">
