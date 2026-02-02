@@ -1,6 +1,19 @@
 /* Ticket principal */
+
+body {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../imagen/ba1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+.containerr {
+  margin-bottom: 50px;
+}
 .ticket {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(146, 45, 45, 0.05);
   backdrop-filter: blur(12px);
   border-radius: 25px;
   width: 450px;
@@ -11,8 +24,9 @@
   color: #fff;
   margin: 50px auto;
   animation: fadeInUp 0.6s ease;
-  font-family: 'Poppins', sans-serif;
-   margin-top: 120px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 120px;
+  height: 600px;
 }
 
 /* Cabecera del ticket */
@@ -22,11 +36,11 @@
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 10px;
+  padding-top: 30px;
   position: relative;
 }
 
 .ticket h2::after {
-  content: "🎬";
   position: absolute;
   right: -30px;
   font-size: 28px;
@@ -46,10 +60,12 @@
   list-style: none;
   padding-left: 0;
   margin: 0 0 25px 0;
+  padding: 10px;
+  margin-top: 30px;
 }
 
 .ticket ul li {
-  padding: 10px 0;
+  padding: 20px;
   border-bottom: 1px dotted rgba(233, 69, 96, 0.3);
   font-size: 15px;
   display: flex;
@@ -70,6 +86,7 @@
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .ticket-buttons button {

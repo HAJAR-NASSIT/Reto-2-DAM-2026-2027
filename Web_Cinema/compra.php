@@ -35,26 +35,32 @@ $pelicula = $pelicula_res->fetch_assoc();
 
 
 if (isset($_POST['confirmar'])) {
-    $numero_entradas = 1;      
-    $descuento_total = 0.00;   
+    $descuento_total = 0.00;
     $tipo_compra = 'Web';
 
     $stmt = $conn->prepare("
-        INSERT INTO compra (DNI, fecha_compra, hora_compra, precio_total, descuento_total, tipo_compra, numero_entradas)
-        VALUES (?, CURDATE(), CURTIME(), ?, ?, ?, ?)
+        INSERT INTO compra (DNI, fecha_compra, hora_compra, precio_total, descuento_total, tipo_compra)
+        VALUES (?, CURDATE(), CURTIME(), ?, ?, ?)
     ");
-    $stmt->bind_param("sddsi", $user, $precio_sesion, $descuento_total, $tipo_compra, $numero_entradas);
+
+    if (!$stmt) {
+        die("SQL ERROR: " . $conn->error);
+    }
+    $stmt->bind_param("sdds", $user, $precio_sesion, $descuento_total, $tipo_compra);
     $stmt->execute();
     $id_compra = $stmt->insert_id;
 
     $stmt2 = $conn->prepare("
-        INSERT INTO entrada (id_sesion, id_compra, precio, descuento)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO entrada (id_sesion, id_compra, importe)
+        VALUES (?, ?, ?)
     ");
-    $descuento = 0.00;
-    $stmt2->bind_param("iidd", $id_sesion, $id_compra, $precio_sesion, $descuento);
+    if (!$stmt2) {
+        die("SQL ERROR: " . $conn->error);
+    }
+
+    $stmt2->bind_param("iid", $id_sesion, $id_compra, $precio_sesion);
     $stmt2->execute();
-     header("Location: ticket.php?id_compra=" . $id_compra);
+    header("Location: ticket.php?id_compra=" . $id_compra);
     exit;
 }
 ?>
@@ -64,10 +70,10 @@ if (isset($_POST['confirmar'])) {
 
 <head>
     <meta charset="UTF-8">
-     <title>Confirmar Reserva</title>
+    <title>Confirmar Reserva</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/csscompra.css">
-     <script src="js/jscompra.js"></script>
+    <script src="js/jscompra.js"></script>
 </head>
 
 <body>
@@ -98,7 +104,7 @@ if (isset($_POST['confirmar'])) {
             </div>
     </header>
 
-    <div class="container">
+    <div class="containerr">
         <h2>Confirmar Reserva 🎫</h2>
         <div class="resumen-reserva">
             <div class="ticket">
@@ -133,18 +139,20 @@ if (isset($_POST['confirmar'])) {
         </div>
     </div>
 
-    <div style="height: 60px;"></div>
-    
+
     <footer class="footer">
         <div class="container">
             <div class="footer-container">
                 <h3>Cine Elorrieta</h3>
                 <p>Tu cine de confianza desde 2025</p>
-                        
+
                 <div class="social-icons">
                     <a href="https://es-es.facebook.com/"><img src="imagen/facebook.png" alt="facebook"></a>
-                    <a href="https://github.com/HAJAR-NASSIT/Reto-2-DAM-2026-2027"><img src="imagen/github.png" alt="github"></a>
-                    <a href="https://workspace.google.com/intl/es/products/gmail/?utm_source=bing&utm_medium=cpc&utm_campaign=emea-es-all-es-dr-bkws-all-all-trial-e-t1-1713698&utm_content=text-ad-none-none-DEV_c-CRE_-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+EXA_1:1_ES_ES_Gmail_GMB06_google+mail-KWID_335428347-kwd-76553690187899:loc-170-userloc_292766&utm_term=KW_google%20mail-o&&msclkid=ef1e0abfe5e51fdb5d5a63cc87ac8c71&gclid=ef1e0abfe5e51fdb5d5a63cc87ac8c71&gclsrc=3p.ds&gad_source=7&gad_campaignid=12470730368"><img src="imagen/gmail.png" alt="gmail"></a>
+                    <a href="https://github.com/HAJAR-NASSIT/Reto-2-DAM-2026-2027"><img src="imagen/github.png"
+                            alt="github"></a>
+                    <a
+                        href="https://workspace.google.com/intl/es/products/gmail/?utm_source=bing&utm_medium=cpc&utm_campaign=emea-es-all-es-dr-bkws-all-all-trial-e-t1-1713698&utm_content=text-ad-none-none-DEV_c-CRE_-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+EXA_1:1_ES_ES_Gmail_GMB06_google+mail-KWID_335428347-kwd-76553690187899:loc-170-userloc_292766&utm_term=KW_google%20mail-o&&msclkid=ef1e0abfe5e51fdb5d5a63cc87ac8c71&gclid=ef1e0abfe5e51fdb5d5a63cc87ac8c71&gclsrc=3p.ds&gad_source=7&gad_campaignid=12470730368"><img
+                            src="imagen/gmail.png" alt="gmail"></a>
                     <a href="https://www.instagram.com/"><img src="imagen/social.png" alt="instagram"></a>
                 </div>
 
@@ -154,6 +162,7 @@ if (isset($_POST['confirmar'])) {
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>

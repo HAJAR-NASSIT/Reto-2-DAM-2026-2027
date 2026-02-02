@@ -1,24 +1,41 @@
 .resumen-reserva {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
-
+body {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../imagen/ba4.png");
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.containerr {
+  margin-bottom: 50px;
+  height: 650px;
+}
+.containerr h2 {
+  padding-top: 60px;
+  text-align: center;
+}
 .ticket {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  width: 90%;/*responsive*/
+  width: 90%; /*responsive*/
   max-width: 400px;
   padding: 25px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   color: #fff;
+  height: 500px;
 }
 
 .ticket-header {
   text-align: center;
-  border-bottom: 1px dashed rgba(233, 69, 96, 0.3);
+  border-bottom: 2px dashed rgba(233, 69, 96, 0.3);
   padding-bottom: 12px;
   margin-bottom: 12px;
 }
@@ -28,6 +45,7 @@
   color: #e94560;
   font-weight: 700;
   font-size: 20px;
+  margin: 20px;
 }
 
 .ticket-body ul {
@@ -36,8 +54,8 @@
   margin: 0;
 }
 
-.ticket-body li {
-  padding: 8px 0;
+.ticket-body ul li {
+  padding: 15px;
   border-bottom: 1px dotted rgba(233, 69, 96, 0.3);
   font-size: 14px;
   color: #fff;
@@ -45,7 +63,7 @@
 
 .ticket-footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .ticket-footer button {
@@ -72,11 +90,11 @@
     width: 95%;
     padding: 15px;
   }
-  
+
   .ticket-header h3 {
     font-size: 18px;
   }
-  
+
   .ticket-body li {
     font-size: 13px;
     padding: 6px 0;
