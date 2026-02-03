@@ -28,7 +28,7 @@ public class GestorFactura  {
 	 * @param descuento descuento aplicado
 	 * @param total importe total final
 	 */
-	   public void  guardarFactura( int idCompra  , String dni, String nombreCliente , String emailCliente,
+	   public void  guardarFactura( int idCompra  , String dni, String nombreCliente , String apelllidoCliente,String emailCliente,
                          ArrayList <String > lineas, double subtotal, double descuento, double total ){
 
 		File carpeta = new File("TicketFacturas") ;
@@ -56,6 +56,7 @@ public class GestorFactura  {
 			pw.println( "DATOS DEL CLIENTE :  " );
 			pw.println("DNI : " +dni) ;
 			pw.println("Nombre : " +nombreCliente )  ;
+			pw.println("Nombre : " +apelllidoCliente )  ;
 			pw.println("Email : " +emailCliente) ;
 			
 			pw.println("------------------------------------------------------------------"  );

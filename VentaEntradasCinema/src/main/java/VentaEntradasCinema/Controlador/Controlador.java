@@ -178,8 +178,11 @@ public class Controlador {
 	 */
 
 	private boolean pantallaSesiones(Pelicula pelicula, LocalDate fechaElegida, Carrito carrito) {
+		
 
 		boolean seleccionHecha = false;
+		boolean disponible=false;
+		int espectadores =0;
 		ArrayList<Sesion> sesiones = sesionDAO.listarSesiones(pelicula.getIdPelicula(), fechaElegida);
 
 		if (sesiones.size() == 0) {
@@ -193,7 +196,7 @@ public class Controlador {
 
 			while (volver == false) {
 				int opcionSesion = menu.mostrarMenuSesiones(pelicula, fechaElegida, sesiones, salas);
-
+			
 				switch (opcionSesion) {
 				case 0:
 					volver = true; // salir de Sesiones y volver a Fechas
@@ -205,18 +208,25 @@ public class Controlador {
 						Sesion sesionElegida = sesiones.get(opcionSesion - 1);
 						Sala salaElegida = salas.get(opcionSesion - 1);
 
-						int espectadores = menu.pedirNumEspectadores();
+						espectadores = menu.pedirNumEspectadores();
+						
+						disponible = carrito.addSeleccion(pelicula, sesionElegida , salaElegida, espectadores);
 
-						if (espectadores <= 0) {
+
+						if (espectadores <= 0  ) {
 							System.out.println("Debe ser mayor  que 0  ");
 
-						} else {
-							carrito.addSeleccion(pelicula, sesionElegida, salaElegida, espectadores);
+						}
+						
+						if (disponible){
+							
+							// carrito.addSeleccion(pelicula, sesionElegida, salaElegida, espectadores);
 							menu.mostrarSeleccion(pelicula, sesionElegida, salaElegida, espectadores);
-
 							seleccionHecha = true; // avisar a pantallaFechas() para salir tambien y volver a peliculas
 							volver = true; // salir de Pantalla sesiones
+							
 						}
+
 					} else {
 						System.out.println(" Opcion  invalida    ");
 					}
@@ -381,7 +391,7 @@ public class Controlador {
 	private Cliente iniciarSesionCliente() {
 
 		String dni = menu.pedirDni();
-		String password = menu.pedirPasswordOculta();
+		String password = menu.pedirPassword();
 
 		boolean accesoCorrecto = clienteDAO.login(dni, password);
 
@@ -422,7 +432,6 @@ public class Controlador {
 			boolean registrado = clienteDAO.insertarCliente(nuevoCliente);
 
 			if (registrado == true) {
-				System.out.println("Registro correcto. Ya puedes continuar con la compra");
 				cliente = clienteDAO.obtenerClientePorDni(nuevoCliente.getDni());
 
 			} else {
@@ -532,10 +541,15 @@ public class Controlador {
 			String dni = cliente.getDni();
 
 			String nombre = "Cliente";
+			String apellido  = "Cliente";
+
 			if (cliente.getNombre() != null) {
 				nombre = cliente.getNombre();
 			}
-
+			
+			if (cliente.getNombre() != null) {
+				apellido = cliente.getApellido();
+			}
 			String email = "No disponible";
 			if (cliente.getEmail() != null) {
 				email = cliente.getEmail();
@@ -545,10 +559,10 @@ public class Controlador {
 			double subtotal = carrito.calcularSubtotal();
 			double totalFinal = subtotal - descuento;
 
-			gestorFactura.guardarFactura(idCompra, dni, nombre, email, lineas, subtotal, descuento, totalFinal);
+			gestorFactura.guardarFactura(idCompra, dni, nombre, apellido ,email, lineas, subtotal, descuento, totalFinal);
 
 		} else {
-			System.out.println(" No se puedo generar la factura, Cliente no disponible !!!");
+			System.out.println(" No se puedo generar la factura, Cliente no disponible !");
 		}
 	}
 
