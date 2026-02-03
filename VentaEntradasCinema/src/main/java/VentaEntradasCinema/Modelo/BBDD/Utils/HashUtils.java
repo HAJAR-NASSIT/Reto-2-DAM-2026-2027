@@ -2,9 +2,22 @@ package VentaEntradasCinema.Modelo.BBDD.Utils;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-
+/**
+ * Clase HashUtils.
+ * Contiene métodos auxiliares para generar hashes de texto.
+ * <p>
+ * Se utiliza principalmente para transformar contraseñas u otros datos sensibles
+ * antes de almacenarlos o compararlos en la base de datos.
+ * </p>
+ */
 public class HashUtils {
-	
+
+	/**
+	 * Genera el hash SHA-256 de un texto y lo devuelve en formato hexadecimal.
+	 *
+	 * @param texto texto original que se quiere convertir a hash
+	 * @return hash SHA-256 en hexadecimal, o null si ocurre un error
+	 */
 	public static String generarHash(String texto) {
 
          String hashFinal = null ;

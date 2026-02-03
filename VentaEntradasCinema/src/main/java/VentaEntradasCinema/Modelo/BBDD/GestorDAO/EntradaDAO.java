@@ -17,8 +17,8 @@ public class EntradaDAO {
 	 *
 	 * @param idSesion  identificador de la sesión asociada a la entrada
 	 * @param idCompra  identificador de la compra a la que pertenece la entrada
-	 * @param precio    precio de la entrada
-	 * @param descuento descuento aplicado a la entrada
+	 * @param importe    precio de la entrada
+
 	 */
 	
 	

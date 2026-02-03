@@ -22,7 +22,6 @@ public class CompraDAO {
 	 * @param dni DNI del cliente que realiza la compra
 	 * @param total importe total de la compra
 	 * @param descuento descuento aplicado a la compra
-	 * @param numEntradas número total de entradas compradas
 	 */
 	
 	

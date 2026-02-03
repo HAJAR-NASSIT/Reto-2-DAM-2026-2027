@@ -41,6 +41,7 @@ import VentaEntradasCinema.Modelo.Pojos.Cliente;
 	            cliente =  new Cliente();
 	            cliente.setDni(resultSet.getString("dni")) ;
 	            cliente.setNombre(resultSet.getString("nombre"));
+	            cliente.setApellido(resultSet.getString("apellido"));
 	            cliente.setEmail(resultSet.getString("email") );
 	        }
 	    } catch (SQLException e ) {
@@ -191,8 +192,9 @@ import VentaEntradasCinema.Modelo.Pojos.Cliente;
 
 	        preparedStatement.setString(1 , cliente.getDni());
 	        preparedStatement.setString(2 , cliente.getNombre()) ;
-	        preparedStatement.setString(3 , cliente.getEmail());
-	        preparedStatement.setString(4 ,cliente.getPassword()); 
+	        preparedStatement.setString(3, cliente.getApellido());
+	        preparedStatement.setString(4 , cliente.getEmail());
+	        preparedStatement.setString(5 ,cliente.getPassword()); 
 
 	        int filaInsertada = preparedStatement.executeUpdate();
 
