@@ -13,12 +13,16 @@ public class Menu {
 
 	private Scanner teclado;
 
+/**
+ *Inicializa el objeto Scanner para permitir la entrada de datos por consola.
+ */
 	public Menu() {
 		teclado = new Scanner(System.in);
 	}
 
 	/**
-	 * 
+	 *Muestra la pantalla de bienvenida del sistema y espera a que el usuario pulse ENTER
+
 	 */
 	public void pantallaBienvenida() {
 
@@ -32,10 +36,10 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @param peliculas
-	 * @param hayCarrito
-	 * @return
+	 * Muestra el menu principal con la lista de peliculas disponibles
+	 * @param peliculas  Lista de peliculas disponibles para mostrar
+	 * @param hayCarrito Indica si existe una compra en curso
+	 * @return Opcion seleccionada por el usuario
 	 */
 	public int mostrarMenuPeliculas(ArrayList<Pelicula> peliculas, boolean hayCarrito) {
 
@@ -60,12 +64,12 @@ public class Menu {
 
 		return opcionElegida;
 	}
-
+	
 	/**
-	 * 
-	 * @param pelicula
-	 * @param fechas
-	 * @return
+	 * Muestra el menu de fechas disponibles para una pelicula seleccionada
+	 * @param pelicula Pelicula seleccionada
+	 * @param fechas Lista de fechas disponibles para esa pelicula
+	 * @return Opcion seleccionada por el usuario
 	 */
 	public int mostrarMenuFechas(Pelicula pelicula, ArrayList<LocalDate> fechas) {
 
@@ -90,12 +94,13 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @param pelicula
-	 * @param fecha
-	 * @param sesiones
-	 * @param salas
-	 * @return
+	 * Muestra las sesiones disponibles para una pelicula en una fecha determinada
+
+	 * @param pelicula seleccionada
+	 * @param fecha  seleccionada
+	 * @param sesiones Lista de sesiones disponibles
+	 * @param salas Lista de salas asociadas a las sesiones
+	 * @return Opcion seleccionada por el usuario
 	 */
 	public int mostrarMenuSesiones(Pelicula pelicula, LocalDate fecha, ArrayList<Sesion> sesiones,
 			ArrayList<Sala> salas) {
@@ -122,8 +127,9 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Solicita al usuario el numero de espectadores para la sesion seleccionada
+
+	 * @return Numero de espectadores introducido
 	 */
 	public int pedirNumEspectadores() {
 		int numEspectadores = leerEntero("\n--> Introducir el Numero de Espectadores  : ");
@@ -132,11 +138,11 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @param pelicula
-	 * @param sesion
-	 * @param sala
-	 * @param espectadores
+	 * Muestra un resumen de la seleccion realizada por el usuario
+	 * @param pelicula seleccionada
+	 * @param sesion  seleccionada
+	 * @param sala  asignada a la sesion
+	 * @param espectadores Numero de espectadores
 	 */
 	public void mostrarSeleccion(Pelicula pelicula, Sesion sesion, Sala sala, int espectadores) {
 
@@ -158,11 +164,12 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @param lineas
-	 * @param subtotal
-	 * @param descuento
-	 * @param total
+	 * Muestra el resumen final de la compra con importes y lineas de detalle
+
+	 * @param lineas Lista de lineas descriptivas de la compra
+	 * @param subtotal Importe subtotal
+	 * @param descuento Importe del descuento aplicado
+	 * @param total Importe total a pagar
 	 */
 	public void mostrarResumenCompra(ArrayList<String> lineas, double subtotal, double descuento, double total) {
 
@@ -182,8 +189,9 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @return
+	 *  Muestra las opciones despues del resumen de compra
+
+	 * @return Opcion seleccionada por el usuario
 	 */
 	public int opcionResumenCompra() {
 		int opcion = -1;
@@ -205,8 +213,8 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Solicita al usuario su DNI
+	 * @return DNI introducido
 	 */
 	public String pedirDni() {
 		System.out.print("DNI : ");
@@ -215,46 +223,37 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Solicita al usuario su password
+	 * @return Password introducido
 	 */
-	public String pedirPasswordOculta() {
+	public String pedirPassword() {
 
 	    String password = "";
-	    int c;
 
 	    System.out.print("Password : ");
-
-	    try {
-	        while ((c = System.in.read()) != '\n') {
-	            password += (char) c;
-	            System.out.print("*");
-	        }
-	    } catch (Exception e) {
-	    }
-
-	    System.out.println();
-	    return password.trim();
+	    
+	    password =teclado.next().trim();
+	    return password;
 	}
 
 
 	/**
-	 * 
+	 * Muestra un mensaje indicando que el login fue correcto
 	 */
 	public void mensajeLoginCorrecto() {
 		System.out.println("\nBien!  LOGIN Correcto ");
 	}
 
 	/**
-	 * 
+	 * Muestra un mensaje indicando que el login fue incorrecto
 	 */
 	public void mensajeLoginIncorrecto() {
 		System.out.println("\nLOGIN Incorrecto !! ");
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Muestra el menu de inicio de sesion y registro
+	 * @return Opcion seleccionada por el usuario
 	 */
 	public int menuLogin() {
 
@@ -287,51 +286,60 @@ public class Menu {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Solicita los datos necesarios para registrar un nuevo cliente
+	 * @return Objeto Cliente con los datos introducidos y validados
 	 */
 	public Cliente nuevoCliente() {
 
 		Cliente cliente = new Cliente();
-		String dni , Email;
-		boolean DNIvalid,Emailvalid;
+		String dni , email;
+		boolean DniValid,emailValid;
 		
-		System.out.println("\n=== REGISTRAR CLIENTE ===");
-
+		System.out.println("\n=============== REGISTRAR CLIENTE ===================");
+		System.out.println("|  Introduce tus datos para completar el registro     |");
+		System.out.println("+-----------------------------------------------------+");
 		
 	    do {
-	        System.out.print("DNI : ");
+	        System.out.print("DNI (ex DNI valido:11111111H): ");
 	        dni = teclado.nextLine().trim();
 	        
-	        DNIvalid=cliente.verificarDNI(dni);
+	        DniValid=cliente.verificarDNI(dni);
 
-	      if (!DNIvalid) {
+	      if (!DniValid) {
 	            System.out.println("DNI incorrecto. Intenta de nuevo.");
 	        }
 
-	    } while (!DNIvalid);
+	    } while (!DniValid);
 
 	    cliente.setDni(dni);
 
 
 		System.out.print("Nombre : ");
 		cliente.setNombre(teclado.nextLine().trim());
+		
+		System.out.print("Apellido: ");
+		cliente.setApellido(teclado.nextLine().trim());
 
 		do {
 			System.out.print("Email : ");
-	        Email = teclado.nextLine().trim();
+	        email = teclado.nextLine().trim();
 	        
-	        Emailvalid=cliente.verificarEmail(Email);
+	        emailValid=cliente.verificarEmail(email);
 
-	      if (!Emailvalid) {
+	      if (!emailValid) {
 	            System.out.println("Email incorrecto. Intenta de nuevo.");
 	        }
 
-	    } while (!Emailvalid);
+	    } while (!emailValid);
 		
-		cliente.setEmail(teclado.nextLine().trim());
+		cliente.setEmail(email);
 
-		cliente.setPassword(pedirPasswordOculta());
+		cliente.setPassword(pedirPassword());
+		
+		System.out.println("+----------------------------------------------------------+");
+	    System.out.println("|  Registro listo. Ya puedes continuar con la compra.       |");
+	    System.out.println("+----------------------------------------------------------+");
+
 
 		return cliente;
 	}
@@ -339,8 +347,8 @@ public class Menu {
 	
 	
 	/**
-	 * 
-	 * @return
+	 * Muestra el menu de opciones para la factura
+	 * @return Opcion seleccionada por el usuario
 	 */
 	public int opcionFactura() {
 
@@ -363,16 +371,20 @@ public class Menu {
 	}
 
 	/**
-	 * 
+	 * Muestra un mensaje indicando que la factura ha sido guardada correctamente
 	 */
 	public void mensajeFacturaGuardada() {
-		System.out.println("\nFACTURA GUARDADA Con Exito ! ");
-		System.out.println("-->Pulsa ENTER para volver al inicio");
+		System.out.println("\n+-------------------------------------------------------+");
+	    System.out.println("|                 FACTURA GUARDADA                        |");
+	    System.out.println("+---------------------------------------------------------+");
+	    System.out.println("|       Estado : Factura guardada con Exito               |");
+	    System.out.println("|   --> Pulsa ENTER para volver al inicio                 |");
+	    System.out.println("+---------------------------------------------------------+");
 		teclado.nextLine();
 	}
 
 	/**
-	 * 
+	 * Lee un numero entero desde teclado con control de errores
 	 * @param mensaje
 	 * @return
 	 */
