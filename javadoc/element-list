@@ -1,0 +1,8 @@
+VentaEntradasCinema
+VentaEntradasCinema.Controlador
+VentaEntradasCinema.Controlador.Ficheros
+VentaEntradasCinema.Modelo.BBDD.GestorDAO
+VentaEntradasCinema.Modelo.BBDD.Utils
+VentaEntradasCinema.Modelo.ClasesAxiliares
+VentaEntradasCinema.Modelo.Pojos
+VentaEntradasCinema.Vista
