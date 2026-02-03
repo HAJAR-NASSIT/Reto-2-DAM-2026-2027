@@ -27,7 +27,7 @@ public class ClienteDAOTest {
 
 	@After
 	public void cleanUp() {
-	    String DNI = "14785236K";
+	    String DNI = "11111111H";
 	    Connection connection = null;
 	    PreparedStatement preparedStatement = null;
 	    
@@ -59,7 +59,7 @@ public class ClienteDAOTest {
 	@Test
 	public void testObtenerClientePorDni() {
 
-		String dniExist = "12345678A";
+		String dniExist = "00000000T";
 
 		Cliente cliente = clienteDAO.obtenerClientePorDni(dniExist);
 
@@ -74,8 +74,8 @@ public class ClienteDAOTest {
 	@Test
 	public void testLogin() {
 
-		String DNI1 = "12345678A";
-		String password1 = "12346";
+		String DNI1 = "00000000T";
+		String password1 = "12345678";
 
 		boolean result = clienteDAO.login(DNI1, password1);
 
@@ -91,7 +91,7 @@ public class ClienteDAOTest {
 
 	@Test
 	public void testExisteDni() {
-		String DNIexist = "12345678A";
+		String DNIexist = "00000000T";
 		String DNINoexist = "zzzzzzzzz";
 
 		boolean result1 = clienteDAO.existeDni(DNIexist);
@@ -106,13 +106,15 @@ public class ClienteDAOTest {
 	public void testInsertarCliente() {
 
 		Cliente cliente = new Cliente();
-		String DNI = "14785236K";
+		String DNI = "11111111H";
 		String nombre = "test";
+		String apellido="user";
 		String email = "test1@gmail.com";
-		String password = "123456";
+		String password = "1234567893";
 
 		cliente.setDni(DNI);
 		cliente.setNombre(nombre);
+		cliente.setApellido(apellido);
 		cliente.setEmail(email);
 		cliente.setPassword(password);
 

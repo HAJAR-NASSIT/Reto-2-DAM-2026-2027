@@ -14,8 +14,9 @@ public class GestorFacturaTest {
 		GestorFactura gestor = new GestorFactura();
 
         int idCompra = 1;
-        String dni = "12345678A";
+        String dni = "00000002W";
         String nombre = "TestCliente";
+        String apellido = "Test";
         String email = "test@email.com";
         
         String linea="1. Pelicula Test - 2026-06-18 18:00 (Sala 1) x 2 --> 20 EUR";
@@ -29,7 +30,7 @@ public class GestorFacturaTest {
         lineas.add(linea);
 
 
-        gestor.guardarFactura(idCompra, dni, nombre, email, lineas, subtotal, descuento, total);
+        gestor.guardarFactura(idCompra, dni, nombre, apellido ,email, lineas, subtotal, descuento, total);
 
         File fichero = new File(Facture);
 

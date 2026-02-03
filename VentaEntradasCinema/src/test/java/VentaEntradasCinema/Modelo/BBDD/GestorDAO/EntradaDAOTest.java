@@ -19,7 +19,7 @@ public class EntradaDAOTest {
 	@Test
 	public void testInsertarEntrada() {
 		
-		String dni = "12345678A";
+		String dni = "00000001R";
 		double precioTotal = 5.5;
 		double descuentoTotal = 0;
 		int idSesion = 1;

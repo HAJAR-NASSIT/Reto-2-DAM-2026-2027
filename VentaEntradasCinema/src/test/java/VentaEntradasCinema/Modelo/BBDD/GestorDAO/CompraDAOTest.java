@@ -12,7 +12,7 @@ public class CompraDAOTest {
 	public void testInsertarCompra() {
 
 		compraDAO = new CompraDAO();
-		String[] DNI = { "12345678A", "87654321B", "11223344C" };
+		String[] DNI = { "00000002W", "00000001R", "00000000T" };
 		double[] total = { 25.50, 30.75, 15.25 };
 		double[] descuento = { 2.50, 0.0, 1.25 };
 		
@@ -36,7 +36,7 @@ public class CompraDAOTest {
 	public void testObtenerUltimoIdCompra() {
 
 		compraDAO = new CompraDAO();
-		String DNI = "12345678A";
+		String DNI = "00000000T";
 		double total = 5;
 		double descuento = 0;
 
