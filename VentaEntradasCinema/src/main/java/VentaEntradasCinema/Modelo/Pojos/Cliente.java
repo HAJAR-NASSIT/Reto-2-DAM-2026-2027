@@ -1,11 +1,11 @@
 package VentaEntradasCinema.Modelo.Pojos;
 
-import VentaEntradasCinema.Modelo.BBDD.Utils.HashUtils;
 
 public class Cliente {
 
 	private String dni;
 	private String nombre;
+	private String apellido;
 	private String email;
 	private String password;
 
@@ -13,12 +13,12 @@ public class Cliente {
 
 	}
 
-	public Cliente(String dni, String nombre, String email, String passwordPlano) {
+	public Cliente(String dni, String nombre, String email, String password) {
 
 		this.dni = dni;
 		this.nombre = nombre;
 		this.email = email;
-		setPassword(passwordPlano); // se hashea automaticamente
+		this.password = password ;
 	}
 
 	public String getDni() {
@@ -36,7 +36,12 @@ public class Cliente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -45,14 +50,14 @@ public class Cliente {
 		this.email = email;
 	}
 
-	// Devuelve el HASH
+	
 	public String getPassword() {
 		return password;
 	}
 
-	// Recibe texto plano y guarda HASH
-	public void setPassword(String passwordPlano) {
-		this.password = HashUtils.generarHash(passwordPlano);
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public boolean verificarDNI(String dni) {
@@ -98,11 +103,17 @@ public class Cliente {
 
 	    return emailValid;
 	}
-	
+
 	
 	@Override
 	public String toString() {
-		return "Cliente [dni=" + dni + ", nombre=" + nombre + ", email=" + email + ", password = PROTEGIDO]";
+		return "Cliente [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
+				+ ", password=" + password + "]";
 	}
+	
+	
+	
+
+
 
 }
