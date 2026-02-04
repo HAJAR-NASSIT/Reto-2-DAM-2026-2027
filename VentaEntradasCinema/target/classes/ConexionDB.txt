@@ -1,5 +1,5 @@
-url=jdbc:mysql://127.0.0.1:3306/cine_elorrieta
-user=dam_v
+url=jdbc:mysql://10.5.6.68:33060/cine_elorrieta
+user=dam
 password=Elorrieta9753$
 
 
